@@ -1,0 +1,1019 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 20px;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+    background-size: 400% 400%; /* For animation */
+    animation: gradientAnimation 15s ease infinite; /* Animation for background */
+    transition: all 0.3s ease;
+    color: #2d3436;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.98);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(20px);
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+header h1 {
+    font-size: 36px;
+    background: linear-gradient(120deg, #00b894, #00cec9);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: -1px;
+    margin: 0;
+}
+
+.toggle-button {
+    padding: 14px 24px;
+    border: none;
+    background: linear-gradient(120deg, #00b894, #00cec9);
+    color: white;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    font-size: 15px;
+    box-shadow: 0 4px 15px rgba(0, 184, 148, 0.2);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.toggle-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 184, 148, 0.3);
+}
+
+/* Enhanced task input section */
+.task-input {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 15px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.task-input input,
+.task-input select,
+.task-input .date-picker {
+    padding: 12px;
+    border: 2px solid rgba(0, 0, 0, 0.08);
+    border-radius: 10px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    background: white;
+    color: #2d3436;
+    flex: 1;
+    min-width: 150px;
+}
+
+.task-input input:focus,
+.task-input select:focus,
+.task-input .date-picker:focus {
+    border-color: #00b894;
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(0, 184, 148, 0.1);
+}
+
+/* Enhanced task card styling */
+.task {
+    background: white;
+    border-radius: 16px;
+    padding: 20px;
+    margin-bottom: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+.task:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.task-name {
+    font-size: 18px;
+    font-weight: 600;
+    color: #2d3436;
+    margin-bottom: 8px;
+}
+
+.task-category {
+    background: linear-gradient(120deg, #00b894, #00cec9);
+    color: white;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.task-date {
+    color: #636e72;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 6px 12px;
+    background: rgba(0, 0, 0, 0.03);
+    border-radius: 20px;
+}
+
+/* Enhanced progress bar */
+.progress-container {
+    background: white;
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
+    margin-top: 40px;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.progress-bar {
+    height: 12px;
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 15px;
+}
+
+.progress {
+    height: 100%;
+    background: linear-gradient(120deg, #00b894, #00cec9);
+    border-radius: 10px;
+    transition: width 0.5s ease;
+}
+
+/* Dark mode enhancements */
+body.dark-mode {
+    background: linear-gradient(120deg, #2d3436 0%, #636e72 100%);
+}
+
+body.dark-mode .container {
+    background: rgba(47, 54, 64, 0.95);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+}
+
+body.dark-mode .task {
+    background: rgba(47, 54, 64, 0.95);
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .task-date {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+body.dark-mode .progress-container {
+    background: rgba(47, 54, 64, 0.95);
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.task-list {
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 12px;
+    background-color: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.task-list h2 {
+    font-size: 24px;
+    color: #2d3436;
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+.task {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    background: #f8f9fa; /* Light background for tasks */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.task:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.task.completed {
+    background: #d4edda; /* Light green background for completed tasks */
+    border-left: 5px solid #28a745; /* Green left border */
+}
+
+.task span {
+    font-size: 16px;
+    color: #2d3436;
+    font-weight: 500;
+}
+
+.task strong {
+    color: #00b894;
+    font-weight: 600;
+    margin-left: 8px;
+}
+
+.task-buttons {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.task button {
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+    border: 2px solid transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: white;
+    position: relative;
+}
+
+.task button .material-icons {
+    font-size: 24px;
+    transition: all 0.3s ease;
+}
+
+/* Complete Button */
+.task button.complete-btn {
+    border-color: #00b894;
+    color: #00b894;
+    background: rgba(0, 184, 148, 0.1);
+}
+
+.task button.complete-btn:hover {
+    background: #00b894;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 184, 148, 0.3);
+}
+
+/* Edit Button */
+.task button.edit-btn {
+    border-color: #f39c12;
+    color: #f39c12;
+    background: rgba(243, 156, 18, 0.1);
+}
+
+.task button.edit-btn:hover {
+    background: #f39c12;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(243, 156, 18, 0.3);
+}
+
+/* Delete Button */
+.task button.delete-btn {
+    border-color: #ff7675;
+    color: #ff7675;
+    background: rgba(255, 118, 117, 0.1);
+}
+
+.task button.delete-btn:hover {
+    background: #ff7675;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 118, 117, 0.3);
+}
+
+/* Completed Badge */
+.completed-badge {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 16px;
+    background: rgba(0, 184, 148, 0.1);
+    color: #00b894;
+    border-radius: 20px;
+    font-weight: 500;
+}
+
+.completed-badge .material-icons {
+    font-size: 20px;
+}
+
+/* Dark mode adjustments */
+body.dark-mode .task button {
+    background: rgba(47, 54, 64, 0.95);
+}
+
+body.dark-mode .completed-badge {
+    background: rgba(0, 184, 148, 0.2);
+}
+
+/* Specific styles for In Progress and Done sections */
+#inProgressList {
+    background-color: rgba(255, 255, 255, 0.1); /* Light background for In Progress */
+}
+
+#doneList {
+    background-color: rgba(220, 255, 220, 0.1); /* Light green background for Done */
+}
+
+.progress-container {
+    display: flex;
+    align-items: center;
+    margin-top: 40px;
+    gap: 20px;
+}
+
+.progress-label {
+    font-size: 16px;
+    color: #2d3436;
+    font-weight: 600;
+    background: rgba(0, 184, 148, 0.2);
+    padding: 10px 15px;
+    border-radius: 12px;
+    min-width: 150px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.progress-bar {
+    flex: 1;
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: 12px;
+    height: 12px;
+    overflow: hidden;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.progress {
+    background: linear-gradient(120deg, #00b894, #00cec9);
+    height: 100%;
+    width: 0;
+    border-radius: 12px;
+    transition: width 0.5s ease;
+    box-shadow: 0 2px 4px rgba(0, 184, 148, 0.2);
+}
+
+/* Dark Mode Styles */
+body.dark-mode {
+    background: linear-gradient(120deg, #2d3436 0%, #636e72 100%);
+    color: #f5f5f5;
+}
+
+body.dark-mode .container {
+    background: rgba(47, 54, 64, 0.95);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+}
+
+body.dark-mode h1 {
+    background: linear-gradient(120deg, #dfe6e9 0%, #b2bec3 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+body.dark-mode .task-input input,
+body.dark-mode .category-select,
+body.dark-mode .filters input,
+body.dark-mode .filters select {
+    background: rgba(47, 54, 64, 0.95);
+    border-color: rgba(255, 255, 255, 0.1);
+    color: #dfe6e9;
+}
+
+body.dark-mode .task-input input::placeholder,
+body.dark-mode .filters input::placeholder {
+    color: #636e72;
+}
+
+body.dark-mode .task {
+    background: rgba(47, 54, 64, 0.95);
+    border-color: rgba(255, 255, 255, 0.05);
+}
+
+body.dark-mode .task span {
+    color: #dfe6e9;
+}
+
+body.dark-mode .task strong {
+    color: #00cec9;
+}
+
+body.dark-mode .task.completed {
+    background: rgba(47, 54, 64, 0.8);
+    border-color: rgba(255, 255, 255, 0.02);
+}
+
+body.dark-mode .task button:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+body.dark-mode .progress-bar {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .progress-label {
+    color: #dfe6e9;
+    background: rgba(0, 184, 148, 0.3);
+}
+
+@keyframes crackPop {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.2);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 0;
+    }
+}
+
+.progress-label.pop {
+    animation: crackPop 2s forwards; /* Apply the crack pop animation */
+}
+
+@keyframes confetti {
+    0% { 
+        transform: translateY(0) rotate(45deg); 
+        opacity: 1;
+    }
+    100% { 
+        transform: translateY(100vh) rotate(225deg);
+        opacity: 0;
+    }
+}
+
+.confetti {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    opacity: 0.8;
+    pointer-events: none;
+    animation: confetti 1s forwards;
+    border-radius: 2px;
+    transform: rotate(45deg);
+}
+
+/* Updated confetti colors with a more harmonious palette */
+.confetti:nth-child(1) { background-color: #ffcc00; left: 10%; animation-duration: 1.5s; }
+.confetti:nth-child(2) { background-color: #ff6b6b; left: 20%; animation-duration: 1.2s; }
+.confetti:nth-child(3) { background-color: #6bcf00; left: 30%; animation-duration: 1.8s; }
+.confetti:nth-child(4) { background-color: #00b894; left: 40%; animation-duration: 1.4s; }
+.confetti:nth-child(5) { background-color: #00cec9; left: 50%; animation-duration: 1.6s; }
+.confetti:nth-child(6) { background-color: #ffcc00; left: 60%; animation-duration: 1.3s; }
+.confetti:nth-child(7) { background-color: #ff6b6b; left: 70%; animation-duration: 1.7s; }
+.confetti:nth-child(8) { background-color: #6bcf00; left: 80%; animation-duration: 1.9s; }
+.confetti:nth-child(9) { background-color: #00b894; left: 90%; animation-duration: 1.1s; }
+
+.firework {
+    position: absolute;
+    width: 10px; /* Slightly larger for visibility */
+    height: 10px;
+    border-radius: 50%;
+    pointer-events: none;
+    opacity: 0.8;
+    animation: firework 1s forwards;
+}
+
+@keyframes firework {
+    0% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: translateY(-100px) scale(1.5);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-200px) scale(0);
+        opacity: 0;
+    }
+}
+
+/* Firework colors */
+.firework:nth-child(1) { background: #ffcc00; }
+.firework:nth-child(2) { background: #ff6b6b; }
+.firework:nth-child(3) { background: #6bcf00; }
+.firework:nth-child(4) { background: #00b894; }
+.firework:nth-child(5) { background: #00cec9; }
+.firework:nth-child(6) { background: #ffcc00; }
+.firework:nth-child(7) { background: #ff6b6b; }
+.firework:nth-child(8) { background: #6bcf00; }
+.firework:nth-child(9) { background: #00b894; }
+
+.celebration-message {
+    font-size: 24px; /* Larger font size for visibility */
+    color: #00b894; /* Color to match the theme */
+    font-weight: bold; /* Bold text */
+    text-align: center; /* Center the text */
+    margin-top: 20px; /* Space above the message */
+    opacity: 0; /* Start hidden */
+    transition: opacity 0.5s ease; /* Smooth transition for appearance */
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.task {
+    animation: fadeIn 0.5s ease forwards; /* Apply fade-in animation */
+}
+
+@keyframes gradientAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.notification-toast {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #00b894;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.notification-toast.show {
+    display: block;
+    opacity: 1;
+}
+
+/* Section Header Styling */
+.section-header {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Align items to the start */
+    margin: 20px 0 10px;
+    padding: 15px 20px; /* Increased padding for better spacing */
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: background 0.3s ease; /* Smooth background transition */
+    position: relative; /* Ensure positioning context for pseudo-elements */
+}
+
+.section-header:hover {
+    background: rgba(255, 255, 255, 1); /* Slightly brighter on hover */
+}
+
+.section-header h2 {
+    margin: 0;
+    font-size: 28px;
+    font-weight: 600;
+    color: #2d3436;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1); /* Subtle text shadow for depth */
+}
+
+/* Remove the gradient border if it causes issues */
+.section-header::before {
+    content: none; /* Remove the gradient border */
+}
+
+/* Task List Container */
+.task-list {
+    display: grid;
+    gap: 20px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* In Progress Section */
+#inProgressList {
+    background-color: rgba(255, 255, 255, 0.1); /* Light background for In Progress */
+}
+
+/* Done Section */
+#doneList {
+    background-color: rgba(220, 255, 220, 0.1); /* Light green background for Done */
+}
+
+/* Dark mode adjustments for In Progress and Done sections */
+body.dark-mode #inProgressList {
+    background-color: rgba(47, 54, 64, 0.95); /* Darker background for In Progress */
+    color: #dfe6e9; /* Light text color for better contrast */
+}
+
+body.dark-mode #doneList {
+    background-color: rgba(38, 166, 154, 0.95); /* Darker background for Done */
+    color: #dfe6e9; /* Light text color for better contrast */
+}
+
+/* Task Card Design */
+.task {
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.task:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* Task Content Styling */
+.task-content {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.task-name {
+    font-size: 18px;
+    font-weight: 500;
+    color: #2d3436;
+}
+
+.task-category {
+    display: inline-block;
+    padding: 4px 10px;
+    background: #00b894;
+    color: white;
+    border-radius: 20px;
+    font-size: 14px;
+}
+
+/* Empty State Styling */
+.task-list:empty {
+    padding: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 200px;
+}
+
+.task-list:empty::after {
+    content: 'No tasks yet';
+    color: #b2bec3;
+    font-size: 16px;
+    font-style: italic;
+}
+
+/* Dark Mode Adjustments */
+body.dark-mode .section-header {
+    background: rgba(47, 54, 64, 0.9); /* Darker background for section headers */
+    color: #dfe6e9; /* Light text color for better contrast */
+}
+
+body.dark-mode .task-list {
+    background: rgba(47, 54, 64, 0.8);
+}
+
+body.dark-mode .task {
+    background: rgba(47, 54, 64, 0.95);
+    color: #f5f6fa;
+}
+
+body.dark-mode .task-category {
+    background: #38a169;
+}
+
+/* Animations */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.task {
+    animation: slideIn 0.3s ease forwards;
+}
+
+function renderTasks() {
+    inProgressList.innerHTML = '';
+    doneList.innerHTML = '';
+    
+    const inProgressTasks = tasks.filter(task => !task.completed);
+    const completedTasks = tasks.filter(task => task.completed);
+
+    // Show or hide the In Progress placeholder
+    const inProgressPlaceholder = document.getElementById('inProgressPlaceholder');
+    inProgressPlaceholder.style.display = inProgressTasks.length === 0 ? 'block' : 'none';
+
+    // Show or hide the Done placeholder
+    const donePlaceholder = document.getElementById('donePlaceholder');
+    donePlaceholder.style.display = completedTasks.length === 0 ? 'block' : 'none';
+
+    tasks.forEach((task, index) => {
+        const taskDiv = document.createElement('div');
+        taskDiv.className = `task ${task.completed ? 'completed' : ''}`;
+        taskDiv.innerHTML = `
+            <div class="task-content">
+                <span class="task-name">${task.name}</span>
+                <span class="task-category">${task.category}</span>
+            </div>
+            <div class="task-buttons">
+                ${!task.completed ? `
+                    <button class="complete-btn" onclick="toggleComplete(${index})" title="Mark Complete">
+                        <span class="material-icons-round">check_circle_outline</span>
+                    </button>
+                    <button class="edit-btn" onclick="editTask(${index})" title="Edit Task">
+                        <span class="material-icons-round">edit</span>
+                    </button>
+                ` : `
+                    <span class="completed-badge">
+                        <span class="material-icons-round">task_alt</span>
+                        Completed
+                    </span>
+                `}
+                <button class="delete-btn" onclick="deleteTask(${index})" title="Delete Task">
+                    <span class="material-icons-round">delete_outline</span>
+                </button>
+            </div>
+        `;
+        if (task.completed) {
+            doneList.appendChild(taskDiv);
+        } else {
+            inProgressList.appendChild(taskDiv);
+        }
+    });
+    updateProgress();
+}
+
+/* Empty State Styling */
+.empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 15px;
+    border: 2px dashed #00b894;
+    text-align: center;
+}
+
+.empty-state .material-icons {
+    font-size: 48px;
+    color: #00b894;
+    margin-bottom: 16px;
+}
+
+.empty-state p {
+    font-size: 20px;
+    color: #2d3436;
+    font-weight: 600;
+    margin: 0 0 8px 0;
+}
+
+.empty-state-subtitle {
+    font-size: 16px;
+    color: #636e72;
+}
+
+/* Dark mode adjustments for empty state */
+body.dark-mode .empty-state {
+    background: rgba(47, 54, 64, 0.8); /* Darker background for empty state */
+    color: #dfe6e9; /* Light text color for better contrast */
+}
+
+body.dark-mode .empty-state .material-icons {
+    color: #00b894; /* Icon color for visibility */
+}
+
+body.dark-mode .empty-state p {
+    color: #dfe6e9;
+}
+
+body.dark-mode .empty-state-subtitle {
+    color: #b2bec3;
+}
+
+/* Done Section Placeholder */
+#doneList {
+    position: relative;
+}
+
+.empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    background: rgba(220, 255, 220, 0.7);
+    border-radius: 15px;
+    border: 2px dashed #38a169;
+    text-align: center;
+}
+
+.empty-state .material-icons {
+    font-size: 48px;
+    color: #38a169;
+    margin-bottom: 16px;
+}
+
+.empty-state p {
+    font-size: 20px;
+    color: #2d3436;
+    font-weight: 600;
+    margin: 0 0 8px 0;
+}
+
+.empty-state-subtitle {
+    font-size: 16px;
+    color: #636e72;
+}
+
+/* Dark mode adjustments for Done section */
+body.dark-mode .empty-state {
+    background: rgba(47, 54, 64, 0.7);
+    border-color: #38a169;
+}
+
+body.dark-mode .empty-state p {
+    color: #dfe6e9;
+}
+
+body.dark-mode .empty-state-subtitle {
+    color: #b2bec3;
+}
+
+/* Completed Task Styling */
+.task.completed {
+    background: #d4edda; /* Light green background for completed tasks */
+    border-left: 5px solid #28a745; /* Green left border */
+    position: relative;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.date-picker {
+    padding: 16px 20px;
+    border: 2px solid rgba(0, 0, 0, 0.1);
+    border-radius: 14px;
+    font-size: 15px;
+    transition: all 0.3s ease;
+    background: white;
+    color: #2d3436;
+    font-family: 'Poppins', sans-serif;
+    cursor: pointer;
+}
+
+.date-picker:focus {
+    border-color: #00b894;
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(0, 184, 148, 0.1);
+}
+
+.task-details {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    margin-top: 4px;
+}
+
+.task-date {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    color: #636e72;
+    font-size: 14px;
+}
+
+.task-date .material-icons {
+    font-size: 16px;
+}
+
+/* Dark mode adjustments */
+body.dark-mode .date-picker {
+    background: rgba(47, 54, 64, 0.95);
+    border-color: rgba(255, 255, 255, 0.1);
+    color: #dfe6e9;
+}
+
+body.dark-mode .task-date {
+    color: #b2bec3;
+}
+
+.sort-options {
+    margin: 20px 0;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.sort-select {
+    padding: 12px 20px;
+    border: 2px solid rgba(0, 0, 0, 0.1);
+    border-radius: 14px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    background: white;
+    color: #2d3436;
+    font-family: 'Poppins', sans-serif;
+    cursor: pointer;
+    min-width: 180px;
+}
+
+.sort-select:focus {
+    border-color: #00b894;
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(0, 184, 148, 0.1);
+}
+
+/* Dark mode adjustment */
+body.dark-mode .sort-select {
+    background: rgba(47, 54, 64, 0.95);
+    border-color: rgba(255, 255, 255, 0.1);
+    color: #dfe6e9;
+}
+
+.add-button {
+    padding: 12px 20px;
+    border: none;
+    background: linear-gradient(120deg, #00b894, #00cec9);
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    font-size: 14px;
+    box-shadow: 0 4px 15px rgba(0, 184, 148, 0.2);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.add-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 184, 148, 0.3);
+    background: linear-gradient(120deg, #00cec9, #00b894);
+}
+
+.add-button:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 15px rgba(0, 184, 148, 0.2);
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    .task-input {
+        flex-direction: column;
+    }
+
+    .task-input input,
+    .task-input select,
+    .task-input .date-picker {
+        width: 100%;
+    }
+
+    .add-button {
+        width: 100%;
+    }
+}
+
+<div class="section-header">
+    <h2>Done</h2>
+</div>
+<div id="doneList" class="task-list">
+    <div class="empty-state" id="donePlaceholder" style="display: none;">
+        <span class="material-icons">check_circle</span>
+        <p>No tasks completed yet!</p>
+        <span class="empty-state-subtitle">Complete tasks to see them here!</span>
+    </div>
+</div> 

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
+
+<!-- Updated favicon references -->
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+
+    
+    <title>Task Manager</title>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Task Manager</h1>
+            <button id="darkModeToggle" class="toggle-button">
+                <span class="material-icons">dark_mode</span>
+                Switch Theme
+            </button>
+        </header>
+        
+        <main>
+            <div class="task-input">
+                <input 
+                    type="text" 
+                    id="taskInput" 
+                    placeholder="What needs to be done?"
+                    autocomplete="off"
+                >
+                <select id="taskCategory" class="category-select">
+                    <option value="Work">💼 Work</option>
+                    <option value="Personal">👤 Personal</option>
+                    <option value="Urgent">🚨 Urgent</option>
+                    <option value="Custom">✨ Custom</option>
+                    <option value="Study">📚 Study</option>
+                </select>
+                <input 
+                    type="date" 
+                    id="taskDate" 
+                    class="date-picker"
+                >
+                <button id="addTaskButton" class="add-button">
+                    <span class="material-icons">add_task</span>
+                    Add Task
+                </button>
+            </div>
+
+            <!-- Update the sort options -->
+            <div class="sort-options">
+                <select id="sortOption" class="sort-select">
+                    <option value="date-asc">📅 Date (Earliest First)</option>
+                    <option value="date-desc">📅 Date (Latest First)</option>
+                    <option value="category">🏷️ Category</option>
+                </select>
+            </div>
+
+            <div class="section-header">
+                <h2>In Progress</h2>
+            </div>
+            <div id="inProgressList" class="task-list">
+                <div class="empty-state">
+                    <span class="material-icons">assignment</span>
+                    <p>No tasks in progress</p>
+                    <span class="empty-state-subtitle">Add a new task to get started!</span>
+                </div>
+            </div>
+            
+            <div class="section-header">
+                <h2>Done</h2>
+            </div>
+            <div id="doneList" class="task-list">
+                <div class="empty-state">
+                    <span class="material-icons">task_alt</span>
+                    <p>No tasks completed</p>
+                    <span class="empty-state-subtitle">Complete tasks to see them here!</span>
+                </div>
+            </div>
+            
+            <div class="progress-container">
+                <div class="progress-label" id="progressLabel">0% Tasks Completed</div>
+                <div class="progress-bar">
+                    <div id="progress" class="progress"></div>
+                </div>
+            </div>
+            <div id="celebrationMessage" class="celebration-message" style="display: none;">🎉 Great Job!</div>
+        </main>
+    </div>
+    <audio id="celebrationSound" src="celebration.mp3" preload="auto"></audio>
+    <div id="notificationToast" class="notification-toast" style="display: none;">Task Added!</div>
+    <script src="script.js"></script>
+</body>
+</html> 
